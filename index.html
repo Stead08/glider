@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gleam Carousel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="carousel-container" class="carousel-container"></div>
+    <script type="module">
+        import { create_carousel, move_prev, move_next } from './build/dev/javascript/glider/lib.mjs';
+        const items = ["Item 1", "Item 2", "Item 3"];
+        create_carousel(items).then(carouselHtml => {
+            document.getElementById('carousel-container').innerHTML = carouselHtml;
+            document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+                move_prev();
+            });
+
+            document.querySelector('.carousel-button.next').addEventListener('click', () => {
+                move_next();
+            });
+        });
+
+    </script>
+</body>
+
+</html>
